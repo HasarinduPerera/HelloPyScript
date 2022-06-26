@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hello PyScript</title>
+  <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+  <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+  <py-env>
+    - paths:
+      - ./vector.py
+  </py-env>
+</head>
+<body>
+  <py-script> print("Hello, World!") </py-script>
+  <br/>
+  <h2>Python code to HTML</h2>
+  <b><p>Today is <u><label id='today'></label></u></p></b>
+  <br/>
+  <py-script>
+    import datetime as dt
+    pyscript.write('today', dt.date.today().strftime('%A %B %d, %Y'))
+  </py-script>
+  <br/>
+  <h2>Run Repl</h2>
+  <py-repl id="my-repl" auto-generate=true> </py-repl>
+  <br/>
+  <h2>Import Modules</h2>
+  <py-script>
+    from vector import Vector
+
+    a = Vector([5,4])
+    b = Vector([2,5])
+    c = 2
+
+    print(a.plus(b))
+    print(a.minus(b))
+    print(a.times_scalar(c))
+  </py-script>
+</body>
+</html>
